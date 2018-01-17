@@ -207,3 +207,48 @@ variable "protect_from_scale_in" {
   description = "Allows setting instance protection. The autoscaling group will not select instances with this setting for terminination during scale in events."
   default     = false
 }
+
+variable "enable_scaling_policies" {
+  description = "Enable default scale-in and scale-out policies based on CPU Utilization"
+  default = true
+}
+
+variable "scaling_policy_high_cpu_evaluation_periods" {
+  description = "The number of periods over which data is compared to the specified threshold"
+  default = 5
+}
+
+variable "scaling_policy_high_cpu_period" {
+  description = "The period in seconds over which the specified statistic is applied"
+  default = 60
+}
+
+variable "scaling_policy_high_cpu_threshold" {
+  description = "The value against which the specified statistic is compared"
+  default = 60
+}
+
+variable "scaling_policy_scaling_out_cooldown" {
+  description = "The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start"
+  default = 300
+}
+
+variable "scaling_policy_low_cpu_evaluation_periods" {
+  description = "The number of periods over which data is compared to the specified threshold"
+  default = 3
+}
+
+variable "scaling_policy_low_cpu_period" {
+  description = "The period in seconds over which the specified statistic is applied"
+  default = 900
+}
+
+variable "scaling_policy_low_cpu_threshold" {
+  description = "The value against which the specified statistic is compared"
+  default = 20
+}
+
+variable "scaling_policy_scaling_in_cooldown" {
+  description = "The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start"
+  default = 3000
+}
